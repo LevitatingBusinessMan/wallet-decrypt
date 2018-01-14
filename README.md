@@ -17,6 +17,7 @@ This is a small modification to wallet-decrypt that instead of providing a mnemo
 Install dependencies
 ```
 pip install pycrypto protobuf
+
 Download an offline copy of the tool at walletgenerator.net to manipulate the key pairs.
 ```
 
@@ -43,7 +44,7 @@ An important thing to note is that the compressed and uncompressed addresses are
 
 On the right, the "Private Key WIF Compressed" is the key to access the funds in the "Public Address Compressed". This private key starts with a Q.
 On the left, the "Private Key WIF" is the key to access the funds in the "Public Address". This private key starts with a 6.
-Whichever public address contains the coins, use the corresponding private key in the dogechain.io "Redeem Paper Wallet" tool (or your own client) to sweep them into a new wallet. 
+Whichever public address contains the coins, use the corresponding private key in the dogechain.info "Redeem Paper Wallet" tool (or your own client) to sweep them into a new wallet. 
 
 Congratulations and remember, always keep your Dogecoin safe by knowing your private key and keeping it safe. If you don't have the private key, you don't have the coins.
 
