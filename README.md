@@ -2,6 +2,8 @@
 
 This is a small modification to wallet-decrypt that instead of providing a mnemonic key, dumps all public and private keys from the wallet in base16 hex format.
 
+This tool can be used to extract your keys from the Android Dogecoin client, also known as the langerhans client.
+
 **WARNING: You will be decrypting your wallet so the private key might be compromised.**
 
 ## Instructions
