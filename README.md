@@ -17,8 +17,8 @@ This is a small modification to wallet-decrypt that instead of providing a mnemo
 Install dependencies
 ```
 pip install pycrypto protobuf
-```
 Download an offline copy of the tool at walletgenerator.net to manipulate the key pairs.
+```
 
 ## You may now wish to take your computer offline to ensure the security of your keys in case any of these tools have been compromised
 
@@ -29,7 +29,8 @@ wallet-decrypt.py FILENAME PASSWORD
 
 You will get a list of public and private keypairs. Likely the first will be the main key for this wallet to which your coins were originally sent. The others may be change addresses for transactions, don't ask me, I don't know. You should check them all to see if they contain any lost coins.
 
-Start up your copy of walletgenerator, click skip and then go to the "Wallet Details" tab. 
+Start up your copy of walletgenerator, click skip and then go to the "Wallet Details" tab.
+
 **Don't forget to change your currency to Dogecoin in the "Choose Currency" box!**
 
 Copy and paste your private key into the provided text box and click "View Details".
