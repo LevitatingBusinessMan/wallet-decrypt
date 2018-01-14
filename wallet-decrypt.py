@@ -6,7 +6,7 @@ import base64
 from hashlib import md5
 from Crypto.Cipher import AES
 import wallet_pb2
-
+from binascii import hexlify, unhexlify
 
 def derive_key_and_iv(password, salt, key_len, iv_len):
     data = tmp2 = b''
@@ -47,12 +47,17 @@ def main():
 
     args = parser.parse_args()
 
+    print("Extracting key pairs...\n")
+
     w = get_wallet(args.filename, args.password)
     for k in w.key:
-        if len(k.secret_bytes) > 0 and k.type == 3:
-            print("\nYou can enter this information in Electrum/Electrum cash\n")
-            print('mnemonic       :', k.secret_bytes.decode())
-            print("derivation path: m/0'")
+        if len(k.secret_bytes) > 0 and k.type != 3: # Type 3 are mnemonic keys and they make a mess
+            pubkey = int('0x0' + hexlify(k.public_key).decode('utf8'), 16)
+            print("Pub:",'{:x}'.format(pubkey))
+
+            secret = int('0x0' + hexlify(k.secret_bytes).decode('utf8'), 16)
+            print("Sec:",'{:x}'.format(secret))
+            print()
 
 
 if __name__ == '__main__':
