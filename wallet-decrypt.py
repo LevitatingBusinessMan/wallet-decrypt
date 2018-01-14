@@ -53,10 +53,10 @@ def main():
     for k in w.key:
         if len(k.secret_bytes) > 0 and k.type != 3: # Type 3 are mnemonic keys and they make a mess
             pubkey = int('0x0' + hexlify(k.public_key).decode('utf8'), 16)
-            print("Pub:",'{:x}'.format(pubkey))
+            print("Public :",'{:x}'.format(pubkey))
 
             secret = int('0x0' + hexlify(k.secret_bytes).decode('utf8'), 16)
-            print("Sec:",'{:x}'.format(secret))
+            print("Private:",'{:x}'.format(secret))
             print()
 
 
