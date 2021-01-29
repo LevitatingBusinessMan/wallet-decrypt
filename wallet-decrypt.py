@@ -47,16 +47,17 @@ def main():
 
     args = parser.parse_args()
 
-    print("Extracting key pairs...\n")
-
     w = get_wallet(args.filename, args.password)
     for k in w.key:
-        if len(k.secret_bytes) > 0 and k.type != 3: # Type 3 are mnemonic keys and they make a mess
-            pubkey = int('0x0' + hexlify(k.public_key).decode('utf8'), 16)
-            print("Public :",'{:x}'.format(pubkey))
 
-            secret = int('0x0' + hexlify(k.secret_bytes).decode('utf8'), 16)
-            print("Private:",'{:x}'.format(secret))
+        if k.type ==3:
+            print("Seed phrase: ", k.secret_bytes.decode('utf8'))
+            print()
+    
+        if len(k.secret_bytes) > 0 and k.type == 4:
+            print("Public :",  k.public_key.hex())
+
+            print("Private:", k.secret_bytes.hex())
             print()
 
 
